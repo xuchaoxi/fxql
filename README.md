@@ -1,10 +1,11 @@
-# Xdb
+# X Database
 
 ## reference
-* https://web.stanford.edu/class/cs346/2015/#
+---
+* [CS346 Spring 2015](https://web.stanford.edu/class/cs346/2015/)
 
 ## fxql commands
-
+---
 * help;                         --> show fxql commands
 * create database test;         --> create a database named test
 * drop database test;           --> drop a database named test
@@ -21,23 +22,32 @@
 * ls;                           --> list databases
 * ls database;                  --> list tables
 
-## query
+## SQL
+---
+### CREATE
 
-* create table nation(n_nationkey i, n_name c25
+* create table nation(n\_nationkey i, n\_name c25);
+* create index nation(n\_nationkey);
+
+## DROP
+
+* drop index nation(n\_nationkey);
+
+## SELECT
+
 * select * from nation;
-* select * from nation where n_nationkey < 10;
-* select * from nation, region where n_regionkey = r_regionkey and r_regionkey=1;
-* select n_nationkey, n_name, n_regionkey, r_regionkey from nation, region where n_regionkey=r_regionkey;
-* create index nation(n_nationkey);
-* drop index nation(n_nationkey);
-* delete from nation where n_nationkey=1;
-* insert into nation values(25, "CHINA", 0, "hasjxbsbcsdbc ibnsdjcbjdf");
-* update nation set n_nationkey=26 where n_nationkey=25;
-
-## newly increased function
-
-* select min(n_nationkey) from nation;
-* select max(n_nationkey) from nation;
-* select count(n_nationkey) from nation;
-* select avg(n_nationkey) from nation;
+* select * from nation where n\_nationkey < 10;
+* select * from nation, region where n\_regionkey = r\_regionkey and r\_regionkey=1;
+* select n\_nationkey, n\_name, n\_regionkey, r\_regionkey from nation, region where n\_regionkey=r\_regionkey;
 * select * from nation limit 5;
+### Aggregation
+* select min(n\_nationkey) from nation;
+* select max(n\_nationkey) from nation;
+* select count(n\_nationkey) from nation;
+* select avg(n\_nationkey) from nation;
+
+## DELETE & UPDATE
+
+* delete from nation where n\_nationkey=1;
+* insert into nation values(25, "CHINA", 0, "hasjxbsbcsdbc ibnsdjcbjdf");
+* update nation set n\_nationkey=26 where n\_nationkey=25;
